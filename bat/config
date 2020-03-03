@@ -1,0 +1,9 @@
+--theme="Monokai Extended Origin"
+
+--style="numbers,changes,header"
+
+--pager="less -FR"
+
+--map-syntax h:cpp
+
+--map-syntax .ignore:.gitignore

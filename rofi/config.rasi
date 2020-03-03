@@ -1,0 +1,8 @@
+/* Rofi config file */
+configuration {
+	lines: 12;
+	font: "Hack 14";
+	theme: "material";
+	display: "Window";
+}
+
