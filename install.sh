@@ -24,12 +24,13 @@ echo "Phew, that was a lot of packages to process."
 echo "Let me create another directory to backup current dots!"
 
 mkdir -p $olddir
+mkdir -p ~/.config
 
 ######## Backing up dots and symlinking
 title "Okay, moving the dots to backup directory..."
 title "... and creating symbolic links simultaneously"
 for x in $dots_to_move; do
-	if [ -f "$x" ]; then
+	if [ -f "../.$x" ]; then
 		echo "Backing up .$x"
 		mv ~/.$x $olddir/
 	fi
@@ -39,7 +40,7 @@ done
 ######## Backing up config directories and symlinking
 title "Let's do the same with config directory!"
 for x in $config_dirs; do
-	if [ -d $x ]; then
+	if [ -d "~/.config/$x" ]; then
 		echo "Backing up $x directory"
 		mv ~/.config/$x $olddir/.config/
 	fi
@@ -49,7 +50,7 @@ done
 ######## Copying the fonts and installing
 title "Copying the fonts"
 mkdir -p ~/.local/share/fonts/
-cp $dir/fonts ~/.local/share/fonts/
+cp -r $dir/fonts ~/.local/share/
 echo "Installing fonts..."
 fc-cache -f
 echo "...done"
